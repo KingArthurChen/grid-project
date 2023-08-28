@@ -14,8 +14,8 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    flex-wrap: nowrap;
     position: relative;
-    width: 100%;
 }
 
 .left-nav {
@@ -74,7 +74,8 @@ header {
     height: 50px;
     width: 50px;
     position: absolute;
-    left: 98%;
+    padding-right: 12%;
+    left: 97%;
 }
 
 .hamburger .bar {
@@ -83,6 +84,7 @@ header {
     height: 4px;
     border-radius: 5px;
     margin: 3px;
+    display: none;
 }
 
 .project-grid {
@@ -188,7 +190,18 @@ header {
 }
 
 @media only screen and (max-width: 768px) {
+    header {
+        position: fixed;
+        box-sizing: border-box;
+        padding: 16px 24px;
+        width: 100%;
+        left: 0;
+        top: 0;
+        z-index: 3;
+        background-color: white;
+    }
     .project-grid {
+        margin-top: 150px;
         display: grid;
         grid-template-areas: 
         "ethereal ethereal"
@@ -203,6 +216,14 @@ header {
     }
     .project .overlay {
         font-size: 20px;
+    }
+
+    .right-nav {
+        display: none;
+    }
+
+    .hamburger .bar {
+        display: block;
     }
 }
 
