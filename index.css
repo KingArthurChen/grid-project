@@ -78,13 +78,53 @@ header {
     left: 97%;
 }
 
-.hamburger .bar {
+.hamburger:hover {
+    cursor: pointer;
+}
+
+.bar1, .bar2, .bar3 {
     background-color: black;
     width: 36px;
     height: 4px;
     border-radius: 5px;
     margin: 3px;
     display: none;
+}
+
+.mobileNav {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100px;
+    height: 100vh;
+    background-color: white;
+    position: fixed;
+    top: 0;
+    right: -160px;
+    z-index: -1;
+    padding: 32px;
+    transition: transform 0.5s;
+}
+
+.mobileNav img {
+    width: 24px;
+    height: 24px;
+}
+
+.mobileNav a {
+    text-decoration: none;
+    color: black;
+    font-weight: 500;
+    padding: 12px 0;
+}
+
+.mobileNav a:hover {
+    text-decoration: underline;
+}
+
+.openDrawer {
+    transform: translate(-160px);
 }
 
 .project-grid {
@@ -175,6 +215,7 @@ header {
     color: white;
 }
 
+
 @media only screen and (max-width: 1100px) {
     .project-grid {
         display: grid;
@@ -222,7 +263,7 @@ header {
         display: none;
     }
 
-    .hamburger .bar {
+    .bar1, .bar2, .bar3 {
         display: block;
     }
 }
@@ -230,4 +271,48 @@ header {
 .footer {
     text-align: center;
     font-size: 24px;
+}
+
+.animateBar1 {
+    animation: rotateBar1 0.5s;
+    animation-fill-mode: forwards;
+}
+
+.animateBar2 {
+    animation: scaleBar2 0.5s;
+    animation-fill-mode: forwards;
+}
+
+.animateBar3 {
+    animation: rotateBar3 0.5s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes scaleBar2 {
+    from {
+        transform: scaleX(1);
+        opacity: 1;
+    }
+    to {
+        transform: scaleX(0);
+        opacity: 0;
+    }
+}
+
+@keyframes rotateBar1 {
+    from {
+        transform: rotate(0);
+    }
+    to {
+        transform: rotate(45deg) translate(-10px, 22.5px);
+    }
+}
+
+@keyframes rotateBar3 {
+    from {
+        transform: rotate(0);
+    }
+    to {
+        transform: rotate(-45deg) translate(-8px, -24px);
+    }
 }
